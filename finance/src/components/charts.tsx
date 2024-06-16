@@ -41,7 +41,7 @@ function App() {
   useEffect(() => {
     axios
       .get(
-        `https://financialmodelingprep.com/api/v3/historical-price-full/${selectedSymbol}?apikey=QgkW0L2PxXxupHEKzUsYUQV0Lfgv41P0`
+        `https://financialmodelingprep.com/api/v3/historical-price-full/${selectedSymbol}?apikey=${import.meta.env.VITE_APP_API_KEY_STOCK}`
       )
       .then((response) => {
         const stockData: StockData[] = [];

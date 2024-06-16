@@ -10,7 +10,7 @@ const useFetchNews = (query: string) => {
 
   useEffect(() => {
     const fetchNews = async () => {
-      const apiKey = "440e1a7f7c6f4bab9f9f3e739f40c3ab";
+      const apiKey = import.meta.env.VITE_APP_API_KEY_NEWS;
       const today = new Date().toString().split("T")[0];
       const sort = "popularity";
       const url = `https://newsapi.org/v2/everything?q=${query}&from=${today}&sortBy=${sort}&apiKey=${apiKey}`;

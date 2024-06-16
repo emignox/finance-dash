@@ -15,7 +15,7 @@ function Stock() {
   const FethcData = async () => {
     try {
       const response = await axios.get(
-        "https://financialmodelingprep.com/api/v3/stock/list?apikey=QgkW0L2PxXxupHEKzUsYUQV0Lfgv41P0"
+        `https://financialmodelingprep.com/api/v3/stock/list?apikey=${import.meta.env.VITE_APP_API_KEY_STOCK}`
       );
       console.log(response.data);
       setData(response.data);
