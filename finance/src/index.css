@@ -24,3 +24,16 @@ body {
     transform: rotate(360deg);
   }
 }
+/* Scroll animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.slider {
+  animation: marquee 20s linear infinite;
+}

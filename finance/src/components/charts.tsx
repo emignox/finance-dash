@@ -122,6 +122,12 @@ function App() {
             ]),
             xAxisIndex: 0,
             yAxisIndex: 0,
+            itemStyle: {
+              color: "green", // colore per le candele bullish
+              color0: "red", // colore per le candele bearish
+              borderColor: "green", // colore del bordo per le candele bullish
+              borderColor0: "red", // colore del bordo per le candele bearish
+            },
           },
           {
             type: "bar",
@@ -129,7 +135,7 @@ function App() {
             xAxisIndex: 1,
             yAxisIndex: 1,
             itemStyle: {
-              color: "rgba(0,0,0,0.2)",
+              color: "rgb(59 130 246)",
               barGap: "50%",
             },
           },
@@ -153,20 +159,24 @@ function App() {
   }, [chart]);
 
   return (
-    <div className="flex w-full h-screen overflow-hidden ">
-      <div className="flex flex-col items-start justify-start py-10 ml-1 gap-y-1 overflow-auto h-[100vh]">
-        <h1 className="text-4xl font-bold text-start">Stock Charts</h1>
-        {symbols.map((symbol) => (
-          <div
-            key={symbol}
-            onClick={() => setSelectedSymbol(symbol)}
-            className={`w-full duration-150 transform border-2 ${selectedSymbol === symbol ? "border-red-500" : "border-blue-500"} rounded-lg cursor-pointer hover:border-red-500`}
-          >
-            <button className="px-4 py-2 text-yellow-900 rounded-md">
-              {symbol}
-            </button>
+    <div className="flex flex-col w-full h-screen overflow-hidden md:flex-row">
+      <div className="flex flex-row md:flex-col items-start justify-start py-10 ml-1 gap-y-1 overflow-auto h-[20vh] md:h-[100vh]">
+        <div className="flex flex-col ">
+          <h1 className="text-4xl font-bold text-start">Stock Charts</h1>
+          <div className="flex overflow-x-scroll md:flex md:flex-col md:overflow-y-scroll scrollbar-hide">
+            {symbols.map((symbol) => (
+              <div
+                key={symbol}
+                onClick={() => setSelectedSymbol(symbol)}
+                className={`w-full md:w-auto duration-150 transform border-2 ${selectedSymbol === symbol ? "border-red-500" : "border-blue-500"} rounded-lg cursor-pointer hover:border-red-500 my-1  `}
+              >
+                <button className="px-4 py-2 font-thin rounded-md">
+                  {symbol}
+                </button>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
       <div
         className=""
